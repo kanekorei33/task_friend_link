@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pictures</h1>
+<h1>friend link</h1>
 
 <table>
   <thead>
@@ -16,7 +16,11 @@
     <% @pictures.each do |picture| %>
       <tr>
         <td><%= picture.content %></td>
-        <td><%= image_tag(picture.image.url) %></td>
+            <% if picture.image.url.present? %>
+              <td><%= image_tag (picture.image.url) %></td>
+            <% else %>
+              <td>no image</td>
+            <% end %>
         <td><%= picture.user.name %></td>
         <td><%= link_to 'Show', picture %></td>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
@@ -28,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Picture', new_picture_path %>
+<%= link_to 'New content', new_picture_path %>
