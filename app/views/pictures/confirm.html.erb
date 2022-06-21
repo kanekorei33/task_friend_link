@@ -1,14 +1,70 @@
-<h1>confirmation</h1>
-<%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
+<header class="masthead" style="background-image: url(<%= asset_path 'about-bg.jpg' %>)">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>confirmation</h1>
+          <span class="subheading">Enjoy the exchange!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-  <%= form.hidden_field :content %>
-  <p>Content:<%= @picture.content %></p>
+<div class="container px-4 px-lg-5">
+  <%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
+
+    <%= form.hidden_field :content %>
+    <p>Content:<%= @picture.content %></p>
     <%= image_tag(@picture.image.url) if @picture.image.url.present? %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.submit "投稿する" %>
-<% end %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.submit "投稿する" %>
+  <% end %>
 
-<%= form_with(model:@picture, url:new_picture_path, local:true, method:"get") do |form| %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.submit "戻る", name: "back" %>
-<% end %>
+  <%= form_with(model:@picture, url:new_picture_path, local:true, method:"get") do |form| %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.submit "戻る", name: "back" %>
+  <% end %>
+</div>
+
+<footer class="border-top">
+	<div class="container px-4 px-lg-5">
+		<div class="row gx-4 gx-lg-5 justify-content-center">
+			<div class="col-md-10 col-lg-8 col-xl-7">
+				<ul class="list-inline text-center">
+					<li class="list-inline-item">
+						<a href="#!">
+							<span class="fa-stack fa-lg">
+								<i class="fas fa-circle fa-stack-2x"></i>
+								<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+				  </li>
+				  <li class="list-inline-item">
+					  <a href="#!">
+					    <span class="fa-stack fa-lg">
+								<i class="fas fa-circle fa-stack-2x"></i>
+								<i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a href="#!">
+							<span class="fa-stack fa-lg">
+								<i class="fas fa-circle fa-stack-2x"></i>
+								<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+				</ul>
+			<div class="small text-center text-muted fst-italic">Copyright &copy; Kaneko Reiko Website 2022</div>
+			</div>
+		</div>
+	</div>
+</footer>
+			<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+</body>
+
